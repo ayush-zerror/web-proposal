@@ -1,19 +1,16 @@
-
-"use client"
-import React, { useEffect, useLayoutEffect, useRef } from "react";
+"use client";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import Tempus from "@studio-freight/tempus";
 import Lenis from "@studio-freight/lenis";
-
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export default function SmoothScroller() {
   const lenis = useRef(null);
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
-    if (lenis.current) lenis.current.scrollTo(0, { immediate: true });
-  }, [pathname, searchParams]);
+    lenis.current?.scrollTo(0, { immediate: true });
+  }, [pathname]);
 
   useLayoutEffect(() => {
     lenis.current = new Lenis({
@@ -21,30 +18,20 @@ export default function SmoothScroller() {
       easing: (t) => 1 - Math.pow(1 - t, 3),
       smooth: true,
       smoothTouch: true,
-      direction: "vertical",
-      gestureDirection: "vertical",
-      wheelMultiplier: 0.8,
-      touchMultiplier: 1.2,
-      infinite: false,
     });
 
     const resize = setInterval(() => {
-      if (lenis.current) lenis.current.resize();
+      lenis.current?.resize();
     }, 150);
 
-    function onFrame(time) {
-      if (lenis.current) lenis.current.raf(time);
-    }
-
-    const unsubscribe = Tempus.add(onFrame);
+    const unsubscribe = Tempus.add((time) => {
+      lenis.current?.raf(time);
+    });
 
     return () => {
       unsubscribe();
       clearInterval(resize);
-      if (lenis.current) {
-        lenis.current.destroy();
-        lenis.current = null;
-      }
+      lenis.current?.destroy();
     };
   }, []);
 

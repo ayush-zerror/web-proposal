@@ -79,7 +79,7 @@ const Home = () => {
       </div>
       <div className="top-0 sticky h-screen flex items-center justify-center px-[1.5rem] py-[1.5rem] ">
 
-        <section className="w-full max-w-[75rem] h-[42rem] border bg-black text-white rounded-[2rem] px-[2rem] py-[2rem] flex flex-col justify-between">
+        <section className="w-full max-w-[75rem] h-[42rem] border-5 bg-black text-white rounded-[2rem] px-[2rem] py-[2rem] flex flex-col justify-between">
 
           {/* Header */}
           <div className="flex justify-between items-center text-[0.7rem] font-bold uppercase tracking-[0.2em] text-white/60">
@@ -323,7 +323,7 @@ const Home = () => {
       <div className=" top-0 sticky h-screen flex items-center justify-center px-[1.5rem] py-[1.5rem]">
 
         {/* Card Section */}
-        <section className="w-full max-w-[75rem] h-[42rem] border bg-black text-white rounded-[2rem] px-[1.5rem] py-[1.5rem] flex flex-col justify-between">
+        <section className="w-full max-w-[75rem] h-[42rem] border-5 bg-black text-white rounded-[2rem] px-[1.5rem] py-[1.5rem] flex flex-col justify-between">
 
           {/* Heading */}
           <h1 className="text-[5rem] whitespace-nowrap  md:text-[13rem] leading-[0.8] font-bold tracking-[-0.03em] uppercase text-center">
