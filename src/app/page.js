@@ -1,102 +1,309 @@
-"use client"
-import React, { useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+"use client";
+import React from "react";
 
 const Home = () => {
-
-  useEffect(() => {
-
-    const slides = gsap.utils.toArray(".slide");
-
-    slides.forEach((slide) => {
-      ScrollTrigger.create({
-        trigger: slide,
-        start: "top top",
-        pin: true,
-        pinSpacing: false,
-      });
-    });
-
-  }, []);
-
   return (
-    <div className="bg-[#07070c] text-white font-sans overflow-x-hidden">
+    <div className="bg-black relative">
+      <div className="top-0 sticky h-screen flex items-center justify-center px-[1.5rem] py-[1.5rem]">
 
+        {/* Card Section */}
+        <section className="w-full max-w-[75rem] h-[42rem] bg-black text-white rounded-[2rem] px-[1.5rem] py-[1.5rem] flex flex-col justify-between">
 
-      {/* HERO */}
-      <section className="slide relative h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden bg-gradient-to-br from-[#0f0f1a] via-[#0a0a14] to-black">
+          {/* Heading */}
+          <h1 className="text-[5rem] md:text-[15rem] leading-[0.8] font-bold tracking-[-0.03em] uppercase text-center">
+            Welcome
+          </h1>
 
-        <div className="absolute w-[700px] h-[700px] bg-purple-500/20 blur-[200px] top-[-250px] left-[20%]"></div>
-        <div className="absolute w-[500px] h-[500px] bg-indigo-500/20 blur-[200px] bottom-[-200px] right-[20%]"></div>
+          {/* Image */}
+          <div className="w-full rounded-[1.5rem] overflow-hidden bg-neutral-200">
+            <img
+              src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?q=80&w=1170&auto=format&fit=crop"
+              alt="hero"
+              className="w-full h-[23rem] object-cover"
+            />
+          </div>
 
-        <p className="text-sm tracking-[6px] text-purple-400 mb-6 z-10">
-          DIGITAL PROPOSAL
-        </p>
+          {/* Footer */}
+          <div className="flex justify-between text-[0.625rem] text-gray-400 uppercase tracking-[0.15em]">
+            <p>Design Studio</p>
+            <p>Since 2024</p>
+            <p>All Rights Reserved</p>
+          </div>
 
-        <h1 className="text-7xl md:text-[110px] font-bold leading-[0.9] mb-8 z-10">
-          Modern <br /> Web Experience
-        </h1>
+        </section>
+      </div>
+      <div className=" top-0 sticky h-screen flex items-center justify-center px-[1.5rem] py-[1.5rem]">
 
-        <p className="max-w-xl text-gray-400 text-lg z-10">
-          We craft premium digital experiences combining modern UI,
-          performance and scalable engineering.
-        </p>
+        <section className="w-full max-w-[75rem] h-[42rem] bg-[#f5f5f5] rounded-[2rem] px-[2rem] py-[2rem] flex flex-col justify-between">
 
-      </section>
+          {/* Header */}
+          <div className="flex justify-between items-center text-[0.7rem] font-bold uppercase tracking-[0.2em] text-black">
+            <p>Contents</p>
+            <p>Index 01</p>
+          </div>
 
+          {/* Content */}
+          <div className="flex flex-col justify-center gap-[0.8rem] flex-1">
+            {[
+              "Welcome to [boring]",
+              "Timeline",
+              "Terms & Conditions",
+              "Payments",
+              "Client Portal",
+              "Your Files",
+              "Communication",
+            ].map((text, i) => (
+              <div key={i} className="flex items-center gap-[1.5rem]">
 
+                {/* Number */}
+                <span className="text-[3.5rem] leading-none font-extrabold tracking-[-0.03em] w-[6rem]">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
 
-      {/* ABOUT */}
-      <section className="slide min-h-screen flex items-center px-10 md:px-32 py-32 bg-[#0b0b12]">
+                {/* Text */}
+                <h2 className="text-[3.5rem] leading-none font-extrabold uppercase tracking-[-0.03em]">
+                  {text}
+                </h2>
 
-        <div className="grid md:grid-cols-2 gap-24 items-center">
+              </div>
+            ))}
+          </div>
 
-          <div>
+          {/* Footer */}
+          <div className="flex justify-between items-center text-[0.7rem] uppercase tracking-[0.2em] font-bold text-black">
+            <p>Select a section to begin</p>
+            <p>Scroll ↓</p>
+          </div>
 
-            <p className="text-purple-400 text-sm tracking-[5px] mb-6">
-              01 — ABOUT
-            </p>
+        </section>
+      </div>
+      <div className="top-0 sticky h-screen flex items-center justify-center px-[1.5rem] py-[1.5rem] ">
 
-            <h2 className="text-[56px] font-bold leading-tight mb-6">
-              Crafting Modern <br/> <span className="text-purple-400">Experiences</span>
-            </h2>
+        <section className="w-full max-w-[75rem] h-[42rem] border bg-black text-white rounded-[2rem] px-[2rem] py-[2rem] flex flex-col justify-between">
 
-            <p className="text-gray-400 text-lg leading-relaxed max-w-lg">
-              We design and build digital platforms that combine
-              beautiful interfaces with scalable engineering.
-              Our goal is to help brands create impactful digital
-              products and exceptional user experiences.
-            </p>
+          {/* Header */}
+          <div className="flex justify-between items-center text-[0.7rem] font-bold uppercase tracking-[0.2em] text-white/60">
+            <p>Introduction</p>
+            <p>01</p>
+          </div>
+
+          {/* Center Content */}
+          <div className="flex items-center justify-center flex-1 text-center">
+            <h1 className="text-[3.5rem] md:text-[6rem] leading-[1.05] font-extrabold uppercase tracking-[-0.02em] max-w-[60rem]">
+              Welcome to <br />
+              [boring world]. <br />
+              Let’s get into it, <br />
+              shall we?
+            </h1>
+          </div>
+
+          {/* Footer */}
+          <div className="flex justify-between items-center text-[0.7rem] uppercase tracking-[0.2em] font-bold text-white/60">
+            <p>Start</p>
+            <p>Scroll ↓</p>
+          </div>
+
+        </section>
+      </div>
+      <div className="top-0 sticky h-screen flex items-center justify-center px-[1.5rem] py-[1.5rem] ">
+
+        <section className="w-full max-w-[75rem] h-[42rem] bg-[#f5f5f5] rounded-[2rem] px-[2rem] py-[2rem] flex flex-col justify-between">
+
+          {/* Header */}
+          <div className="flex justify-between items-center text-[0.7rem] font-bold uppercase tracking-[0.2em] text-black/60">
+            <p>Values</p>
+            <p>02</p>
+          </div>
+
+          {/* Title */}
+          <h1 className="text-[3rem] md:text-[4rem] font-extrabold uppercase tracking-[-0.03em] text-black">
+            What we value
+          </h1>
+
+          {/* Cards (NO STRETCH) */}
+          <div className="grid grid-cols-4 gap-[1.2rem] items-start">
+
+            {[
+              "Quality",
+              "Innovation",
+              "Integrity",
+              "Flexibility",
+            ].map((title, i) => (
+              <div
+                key={i}
+                className="bg-black text-white rounded-[1.5rem] p-[1.5rem] flex flex-col gap-[1rem]"
+              >
+                {/* Title */}
+                <h2 className="text-[1.2rem] font-bold uppercase">
+                  {title}
+                </h2>
+
+                {/* Content */}
+                <p className="text-[0.85rem] leading-[1.5] text-white/70">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+
+                <p className="text-[0.85rem] leading-[1.5] text-white/70">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quidem molestiae debitis recusandae nobis ut libero cum beatae. Atque, vel soluta. Dolorum praesentium eveniet corrupti, soluta perferendis quia sint, magnam minima obcaecati maxime ipsam. Neque obcaecati velit unde itaque natus.
+                </p>
+              </div>
+            ))}
 
           </div>
 
+          {/* Footer */}
+          <div className="flex justify-between items-center text-[0.7rem] uppercase tracking-[0.2em] font-bold text-black/60">
+            <p>Our Principles</p>
+            <p>Scroll ↓</p>
+          </div>
 
-          <div>
+        </section>
+      </div>
+      <div className="top-0 sticky h-screen flex items-center justify-center px-[1.5rem] py-[1.5rem]">
 
-            <div className="bg-gradient-to-br from-purple-500/20 to-transparent rounded-2xl p-12 border border-white/10 backdrop-blur-xl">
+        <section className="w-full max-w-[75rem] h-[42rem] bg-[#f5f5f5] rounded-[2rem] px-[2rem] py-[2rem] flex flex-col justify-between">
 
-              <h3 className="text-2xl font-semibold mb-4">
-                10+ Years Experience
-              </h3>
+          {/* Header */}
+          <div className="flex justify-between items-center text-[0.7rem] font-bold uppercase tracking-[0.2em] text-black/60">
+            <p>About</p>
+            <p>03</p>
+          </div>
 
-              <p className="text-gray-400 mb-6">
-                Delivering modern web platforms and digital experiences
-                for global brands and startups.
+          {/* Main Content (takes remaining space) */}
+          <div className="flex flex-1 gap-[2rem] mt-[1rem] mb-[1rem]">
+
+            {/* Left */}
+            <div className="w-[50%] flex flex-col justify-center gap-[1.5rem]">
+              <h1 className="text-[3rem] md:text-[4rem] leading-[0.95] font-extrabold uppercase tracking-[-0.03em] text-black">
+                Get to <br /> know us
+              </h1>
+
+              <p className="text-[0.9rem] leading-[1.6] text-black/70 max-w-[28rem]">
+                We are a creative team focused on building modern, clean, and impactful digital experiences.
               </p>
 
-              <div className="grid grid-cols-2 gap-6">
+              <p className="text-[0.9rem] leading-[1.6] text-black/70 max-w-[28rem]">
+                From concept to delivery, we ensure every detail is crafted with precision.
+              </p>
+            </div>
 
-                <div>
-                  <p className="text-purple-400 text-xl font-semibold">100+</p>
-                  <p className="text-gray-400 text-sm">Projects</p>
+            {/* Right Image (FULL HEIGHT OF CONTENT ONLY) */}
+            <div className="w-[50%] h-[34rem] rounded-[1.5rem] overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1584772223775-a00c5a0e72d3?q=80&w=685&auto=format&fit=crop"
+                alt="about"
+                className="w-full  object-cover"
+              />
+            </div>
+
+          </div>
+
+          {/* Footer */}
+          <div className="flex justify-between items-center text-[0.7rem] uppercase tracking-[0.2em] font-bold text-black/60">
+            <p>Who we are</p>
+            <p>Scroll ↓</p>
+          </div>
+
+        </section>
+      </div>
+      <div className="top-0 sticky h-screen flex items-center justify-center px-[1.5rem] py-[1.5rem] ">
+
+        <section className="w-full max-w-[75rem] h-[42rem] bg-[#f5f5f5] rounded-[2rem] px-[2rem] py-[2rem] flex flex-col">
+
+          {/* Header */}
+          <div className="flex justify-between items-center text-[0.7rem] font-bold uppercase tracking-[0.2em] text-black/60">
+            <p>Work</p>
+            <p>04</p>
+          </div>
+
+          {/* Main Content */}
+          <div className="flex flex-1 gap-[2rem] mt-[1rem] mb-[1rem]">
+
+            {/* Left Content */}
+            <div className="w-[40%] flex flex-col gap-[1.2rem]">
+              <h1 className="text-[2.5rem] md:text-[3rem] leading-[1] font-extrabold uppercase tracking-[-0.03em] text-black">
+                Works <br /> Overview
+              </h1>
+
+              <p className="text-[0.85rem] leading-[1.6] text-black/70 max-w-[22rem]">
+                A selection of our recent work showcasing design, development, and creative direction across different domains.
+              </p>
+
+              <p className="text-[0.85rem] leading-[1.6] text-black/70 max-w-[22rem]">
+                Each project reflects our focus on clarity, usability, and strong visual identity.
+              </p>
+            </div>
+
+            {/* Right Grid */}
+            {/* Right Horizontal Grid */}
+            <div className="w-[60%] flex items-end ">
+
+              <div className="grid grid-rows-2 grid-flow-col  gap-[1rem] min-w-max">
+
+                <div className="w-full flex flex-col gap-[0.5rem]">
+
+                  {/* Card */}
+                  <div className="w-full h-[13rem] rounded-[0.8rem] overflow-hidden bg-neutral-300">
+                    <img
+                      src={`https://www.rejouice.com/_vercel/image?url=https:%2F%2Fimages.prismic.io%2Frejouice-2024%2FZ22LaZbqstJ981u4_Frame21196.png?auto=format,compress?auto=compress,format&w=2559&q=80`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  {/* Title BELOW */}
+                  <h3 className="text-[0.75rem] font-bold uppercase tracking-[0.1em] text-black">
+                    Lorem, ipsum.
+                  </h3>
+
                 </div>
+                <div className="w-full flex flex-col gap-[0.5rem]">
 
-                <div>
-                  <p className="text-purple-400 text-xl font-semibold">15+</p>
-                  <p className="text-gray-400 text-sm">Countries</p>
+                  {/* Card */}
+                  <div className="w-full h-[13rem] rounded-[0.8rem] overflow-hidden bg-neutral-300">
+                    <img
+                      src={`https://www.rejouice.com/_vercel/image?url=https:%2F%2Fimages.prismic.io%2Frejouice-2024%2FZ3fSX5bqstJ99A_s_Oura-3d-render-01.png?auto=format,compress?auto=compress,format&w=2559&q=80`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  {/* Title BELOW */}
+                  <h3 className="text-[0.75rem] font-bold uppercase tracking-[0.1em] text-black">
+                    Lorem, ipsum.
+                  </h3>
+
+                </div>
+                <div className="w-full flex flex-col gap-[0.5rem]">
+
+                  {/* Card */}
+                  <div className="w-full h-[13rem] rounded-[0.8rem] overflow-hidden bg-neutral-300">
+                    <img
+                      src={`https://www.rejouice.com/_vercel/image?url=https:%2F%2Fimages.prismic.io%2Frejouice-2024%2FZ3FRGZbqstJ984Gt_MP-lastcover.png?auto=format,compress?auto=compress,format&w=2559&q=80`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  {/* Title BELOW */}
+                  <h3 className="text-[0.75rem] font-bold uppercase tracking-[0.1em] text-black">
+                    Lorem, ipsum.
+                  </h3>
+
+                </div>
+                <div className="w-full flex flex-col gap-[0.5rem]">
+
+                  {/* Card */}
+                  <div className="w-full h-[13rem] rounded-[0.8rem] overflow-hidden bg-neutral-300">
+                    <img
+                      src={`https://www.rejouice.com/_vercel/image?url=https:%2F%2Fimages.prismic.io%2Frejouice-2024%2FZ218opbqstJ981rL_Group3919.png?auto=format,compress?auto=compress,format&w=2559&q=80`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  {/* Title BELOW */}
+                  <h3 className="text-[0.75rem] font-bold uppercase tracking-[0.1em] text-black">
+                    Lorem, ipsum.
+                  </h3>
+
                 </div>
 
               </div>
@@ -105,85 +312,44 @@ const Home = () => {
 
           </div>
 
-        </div>
+          {/* Footer */}
+          <div className="flex justify-between items-center text-[0.7rem] uppercase tracking-[0.2em] font-bold text-black/60">
+            <p>Selected Projects</p>
+            <p>Scroll ↓</p>
+          </div>
 
-      </section>
+        </section>
+      </div>
+      <div className=" top-0 sticky h-screen flex items-center justify-center px-[1.5rem] py-[1.5rem]">
 
+        {/* Card Section */}
+        <section className="w-full max-w-[75rem] h-[42rem] border bg-black text-white rounded-[2rem] px-[1.5rem] py-[1.5rem] flex flex-col justify-between">
 
+          {/* Heading */}
+          <h1 className="text-[5rem] whitespace-nowrap  md:text-[13rem] leading-[0.8] font-bold tracking-[-0.03em] uppercase text-center">
+            Thank you
+          </h1>
 
-      {/* SERVICES */}
-      <section className="slide min-h-screen flex flex-col justify-center px-10 md:px-32 py-32 bg-[#090910]">
+          {/* Image */}
+          <div className="w-full rounded-[1.5rem] overflow-hidden bg-neutral-200">
+            <img
+              src="https://images.unsplash.com/photo-1652454107902-073b38414442?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="hero"
+              className="w-full h-[23rem] object-cover object-top"
+            />
+          </div>
 
-        <p className="text-purple-400 text-sm tracking-[5px] mb-8">
-          02 — SERVICES
-        </p>
+          {/* Footer */}
+          <div className="flex justify-between text-[0.625rem] text-gray-400 uppercase tracking-[0.15em]">
+            <p>Design Studio</p>
+            <p>Since 2024</p>
+            <p>All Rights Reserved</p>
+          </div>
 
-        <h2 className="text-[56px] font-bold mb-16">
-          What We Build
-        </h2>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-
-          {[
-            "UI / UX Design",
-            "Web Development",
-            "Performance Optimization",
-            "Analytics Integration",
-          ].map((service, i) => (
-
-            <div
-              key={i}
-              className="group p-10 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl hover:-translate-y-3 hover:border-purple-500/40 transition duration-300"
-            >
-
-              <p className="text-purple-400 text-sm mb-4">
-                0{i + 1}
-              </p>
-
-              <h3 className="text-xl font-semibold mb-3">
-                {service}
-              </h3>
-
-              <div className="w-10 h-[2px] bg-purple-400 mb-4"></div>
-
-              <p className="text-gray-400 text-sm">
-                Building scalable and modern digital platforms
-                focused on performance and usability.
-              </p>
-
-            </div>
-
-          ))}
-
-        </div>
-
-      </section>
-
-
-
-      {/* CTA */}
-      <section className="slide min-h-screen flex flex-col justify-center items-center text-center px-6 py-32 bg-gradient-to-br from-[#0b0b14] to-black">
-
-        <p className="text-purple-400 text-sm tracking-[6px] mb-6">
-          START A PROJECT
-        </p>
-
-        <h2 className="text-[80px] md:text-[100px] font-bold mb-8 leading-[0.9]">
-          Let's Build <br/> Something Great
-        </h2>
-
-        <p className="text-gray-400 max-w-md text-lg mb-12">
-          Partner with us to create powerful digital experiences
-          that elevate your brand.
-        </p>
-
-        <button className="px-12 py-4 rounded-full bg-purple-500 hover:bg-purple-600 transition text-white font-semibold text-lg">
-          Contact Us
-        </button>
-
-      </section>
-
+        </section>
+      </div>
     </div>
+
   );
 };
 
