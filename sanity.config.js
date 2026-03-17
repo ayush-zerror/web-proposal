@@ -14,6 +14,7 @@ import {schema} from './src/sanity/schemaTypes'
 import {structure} from './src/sanity/structure'
 
 export default defineConfig({
+  title: 'Web Proposal',
   basePath: '/studio',
   projectId,
   dataset,
